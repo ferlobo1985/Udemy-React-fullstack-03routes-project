@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 import Home from './components/home';
 import Post from './components/posts';
@@ -9,11 +9,18 @@ const App = () => {
   return (
     <BrowserRouter>
         <header>
-          header
+          <Link to="/">Home</Link> -
+          <Link to="/posts">Posts</Link> - 
+          <Link to={{
+            pathname:'/profile',
+            hash:'#francis',
+            search:'?true=enabled'
+          }}>Profile</Link>
+          <hr/>
         </header>
         <Route path="/" exact component={Home}/>
-        <Route path="/posts" component={Post}/>
-        <Route path="/profile" component={Profile}/>
+        <Route path="/posts" exact component={Post}/>
+        <Route path="/profile" exact component={Profile}/>
     </BrowserRouter>
   );
 }
