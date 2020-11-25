@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './components/header'
 import Home from './components/home';
@@ -13,6 +13,7 @@ const App = () => {
         <Header/>
         <div className="container">
           <Switch>
+            {/* <Redirect from="/profile" to="/"/> */}
             <Route path="/posts/:id"  component={PostItem}/>
             <Route path="/posts"  component={Post}/>
             <Route path="/profile"  component={Profile}/>
