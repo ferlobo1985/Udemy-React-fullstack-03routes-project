@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, NavLink } from 'react-router-dom';
 
 import Home from './components/home';
 import Post from './components/posts';
@@ -13,13 +13,22 @@ const App = () => {
           <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
             <h5 className="my-0 mr-md-auto font-weight-normal">Company name</h5>
             <nav className="my-2 my-md-0 mr-md-3">
-              <Link className="p-2 text-dark" to="/">Home</Link> -
-              <Link className="p-2 text-dark" to="/posts">Posts</Link> - 
-              <Link className="p-2 text-dark" to={{
-                pathname:'/profile',
-                hash:'#francis',
-                search:'?true=enabled'
-              }}>Profile</Link>
+              <NavLink 
+                className="p-2" to="/"
+                activeStyle={{color:'red'}}
+                activeClassName="selected"
+                exact
+              >Home</NavLink> -
+              <NavLink className="p-2" to="/posts"
+                activeStyle={{color:'red'}}
+                activeClassName="selected"
+                exact
+              >Posts</NavLink> - 
+              <NavLink className="p-2 " to="/profile"
+                activeStyle={{color:'red'}}
+                activeClassName="selected"
+                exact
+              >Profile</NavLink>
             </nav>
           </div>
         </header>
